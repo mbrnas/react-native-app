@@ -26,13 +26,14 @@ export class Header extends React.Component{
 }
 
 const styles = StyleSheet.create({
+  
 	headText: {
 		textAlign: 'center',
 		color: '#ffffff',
 		fontSize: 20
 	},
 	headStyle: {
-		paddingTop: 80,
+		paddingTop: 30,
 		paddingBottom: 10,
 		paddingRight: 10,
 		backgroundColor: '#35605a'
