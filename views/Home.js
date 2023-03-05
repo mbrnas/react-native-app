@@ -1,51 +1,73 @@
-import React from 'react';
+import React from "react";
 
-import {StyleSheet, Text, View, Image, TextInput} from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, Button, TouchableOpacity, Alert} from "react-native";
 
-import {Header} from './Header.js'
+import { Header } from "./Header.js";
 
-export class Home extends React.Component{
+export class Home extends React.Component {
+  onPressButton (){
+    Alert.alert('Successful login!');
+  }
+  render() {
+    return (
+      <View style={styles.container}>
+       
 
-  render(){
-   return(
-    <View style={styles.container}>
-    <Header message = 'Press to login'/>
-    <Image style={styles.imageStyle} source={require('./images/ritlogo.jpg')}/>
+        <Image source={require('./images/icon.png')}></Image>
 
-    <TextInput style={styles.textInput} placeholder={'Input name'}></TextInput>
-    <TextInput style={styles.textInput} placeholder={'Input email'}></TextInput>
+        <Text style={styles.naslov}>Sunny Radar</Text>
 
-    <Text style={styles.textStyle}>This is our homepage</Text>
-    <Text style={styles.textStyle}>The other content is here</Text>
+        <TextInput
+          style={styles.textInput}
+          placeholder={"Input name"}
+        ></TextInput>
+        <TextInput
+          style={styles.textInput}
+          placeholder={"Input email"}
+        ></TextInput>
 
-
-    <Text style={styles.textStyle}>Other description text is here</Text>
-    <Text style={styles.textStyle}>Adding some text here for testing</Text>
-    <Text style={styles.textStyle}>Also adding text</Text>
-    </View>
-   );
-  } 
+        <TouchableOpacity onPress={this.onPressButton}>
+          <View style={styles.buttonContainer}>
+            <Button title="Sign in" color={"white"} onPress={this.onPressButton}/>
+          </View>
+        </TouchableOpacity>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    flexDirection: 'column'
+    flex: 5,
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    justifyContent: 'space-around',
+    gap: "-400%"
   },
-  imageStyle: {
-    width: "100%",
-    height: "20%"
-  },
-  textStyle: {
-    flex: 1,
-    textAlign: 'center'
-  },
+
   textInput: {
-    textAlign: 'center',
-    backgroundColor: 'white',
+    textAlign: "center",
+    backgroundColor: "white",
     height: 40,
     padding: 10,
     margin: 12,
-    borderWidth: 1
+    borderWidth: 1,
+    justifyContent: "center",
+    width: 300,
+    borderRadius: 10,
+  },
+
+  buttonContainer: {
+    backgroundColor: "#007AFF",
+    borderRadius: 10,
+    width: "28%",
+    padding: "1%",
+    marginTop: 16,
+  },
+
+  naslov: {
+    fontWeight: "bold",
+    fontSize: 25
   }
 });
